@@ -9,7 +9,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBLBWxj2DKaqBj-yNKPJ8ss6rQo3TH7Fco",
+    apiKey: "AIzaSyDLIr-nDcdFtpvXO0c7NTeS0ghZ4KhEhI0",
     authDomain: "careersignal-680c5.firebaseapp.com",
     projectId: "careersignal-680c5",
     storageBucket: "careersignal-680c5.firebasestorage.app",

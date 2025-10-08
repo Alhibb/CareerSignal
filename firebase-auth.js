@@ -32,7 +32,6 @@ async function handleGoogleSignIn() {
     const feedback = document.getElementById('feedback');
     try {
         await signInWithPopup(auth, googleProvider);
-        window.location.href = 'dashboard.html';
     } catch (error) {
         console.error("Google Sign-In Error:", error);
         let message = "An error occurred during Google Sign-In.";
@@ -55,7 +54,6 @@ function handleRegistration() {
         
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            window.location.href = 'dashboard.html';
         } catch (error) {
             console.error("Registration Error:", error);
             let message;
@@ -92,7 +90,6 @@ function handleLogin() {
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            window.location.href = 'dashboard.html';
         } catch (error) {
             console.error("Login Error:", error);
             let message;

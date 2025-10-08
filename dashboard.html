@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="auth.css">
 </head>
 <body class="auth-body">
-    <div class="auth-container" style="max-width: 600px; text-align: center; background: white; padding: 2rem; border-radius: 16px;">
+    
+    <p id="loader" style="color: var(--dark-neutral); font-size: 1.2rem;">Authenticating...</p>
+    
+    <div id="dashboard-content" class="auth-container" style="max-width: 600px; text-align: center; background: white; padding: 2rem; border-radius: 16px; display: none;">
         <h1>Welcome to CareerSignal</h1>
         <p>Your AI-powered job alerts are now active. We'll start sending opportunities to your WhatsApp shortly.</p>
         <p><strong>Logged in as:</strong> <span id="userEmail"></span></p>
@@ -19,7 +22,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-        // FINAL CORRECTED firebaseConfig - storageBucket is correct and measurementId is included.
         const firebaseConfig = {
             apiKey: "AIzaSyBLBWxj2DKaqBj-yNKPJ8ss6rQo3TH7Fco",
             authDomain: "careersignal-680c5.firebaseapp.com",
@@ -27,18 +29,22 @@
             storageBucket: "careersignal-680c5.firebasestorage.app",
             messagingSenderId: "187741139925",
             appId: "1:187741139925:web:187a97113f1416c955835c",
-            measurementId: "G-Z73VK80MYQ" // This line has been added for a 100% match
+            measurementId: "G-Z73VK80MYQ"
         };
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
+        const loader = document.getElementById('loader');
+        const dashboardContent = document.getElementById('dashboard-content');
         const userEmailSpan = document.getElementById('userEmail');
         const signOutBtn = document.getElementById('signOutBtn');
 
         onAuthStateChanged(auth, user => {
             if (user) {
                 userEmailSpan.textContent = user.email;
+                loader.style.display = 'none';
+                dashboardContent.style.display = 'block';
             } else {
                 window.location.href = 'login.html';
             }

@@ -1,0 +1,197 @@
+:root {
+    --primary-color: #6366F1;
+    --primary-dark: #4F46E5;
+    --dark-neutral: #1E293B;
+    --medium-neutral: #64748B;
+    --light-neutral: #F8FAFC;
+    --white-color: #FFFFFF;
+    --font-family: 'Inter', sans-serif;
+    --gradient-bg: linear-gradient(180deg, var(--white-color) 0%, var(--light-neutral) 100%);
+    --shadow-soft: 0 1px 3px 0 rgba(0,0,0,0.08), 0 1px 2px 0 rgba(0,0,0,0.04);
+    --shadow-medium: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --border-radius-sm: 8px;
+    --border-radius-lg: 16px;
+    --transition-fast: 0.2s ease;
+}
+
+body.auth-body {
+    background: var(--gradient-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: var(--font-family);
+    padding: 1.5rem;
+}
+
+.auth-container {
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+}
+
+.auth-form-container {
+    display: flex;
+    background: var(--white-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-medium);
+    overflow: hidden;
+}
+
+.auth-col-left {
+    padding: clamp(2rem, 5vw, 4rem);
+    flex-basis: 50%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-col-right {
+    flex-basis: 50%;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: clamp(2rem, 5vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.auth-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--dark-neutral);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.auth-logo:hover {
+    color: var(--primary-color);
+}
+
+.auth-col-left h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--dark-neutral);
+    margin-bottom: 0.75rem;
+}
+
+.auth-col-left p {
+    color: var(--medium-neutral);
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+
+.auth-form-group {
+    margin-bottom: 1.25rem;
+}
+
+.auth-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--dark-neutral);
+    font-size: 0.95rem;
+}
+
+.auth-form-group input {
+    width: 100%;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid #CBD5E1;
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: all var(--transition-fast);
+}
+
+.auth-form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.auth-form-container .btn {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-radius: var(--border-radius-sm);
+}
+
+.auth-form-container .btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.auth-prompt {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.auth-prompt a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-prompt a:hover {
+    text-decoration: underline;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.feature-item i {
+    font-size: 2.25rem;
+    width: 40px;
+    text-align: center;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.feature-item h3 {
+    color: var(--white-color);
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+}
+
+.feature-item p {
+    color: #E0E7FF;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.welcome-message {
+    text-align: center;
+}
+
+.welcome-message h2 {
+    color: var(--white-color);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1rem;
+}
+
+.welcome-message p {
+    color: #E0E7FF;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .auth-form-container {
+        flex-direction: column;
+    }
+    .auth-col-left, .auth-col-right {
+        flex-basis: auto;
+    }
+}

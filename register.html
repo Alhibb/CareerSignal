@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | CareerSignal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="auth-form-container">
+            <div class="auth-col-left">
+                <a href="index.html" class="auth-logo"><i class="fas fa-satellite-dish"></i> CareerSignal</a>
+                <h1>Create Account</h1>
+                <p>Join our community to get personalized job alerts delivered straight to your WhatsApp.</p>
+                
+                <button class="btn-google" id="googleSignInBtn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google logo">
+                    Sign Up with Google
+                </button>
+
+                <div class="divider">OR</div>
+
+                <form id="registerForm" novalidate>
+                    <div class="auth-form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="At least 6 characters" minlength="6" required>
+                    </div>
+                    <p id="feedback" style="display: none; margin-bottom: 1rem;"></p>
+                    <button type="submit" class="btn">Register with Email</button>
+                </form>
+                <p class="auth-prompt">Already have an account? <a href="login.html">Login</a></p>
+            </div>
+            <div class="auth-col-right">
+                <div class="feature-item">
+                    <i class="fas fa-brain"></i>
+                    <div>
+                        <h3>AI-Powered Matching</h3>
+                        <p>Our AI finds jobs that perfectly match your skills and experience.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h3>Instant WhatsApp Alerts</h3>
+                        <p>Get notified about new opportunities the moment they're posted.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bullseye"></i>
+                    <div>
+                        <h3>Personalized For You</h3>
+                        <p>Fine-tune your preferences to receive only the most relevant job alerts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="firebase-auth.js"></script>
+</body>
+</html>

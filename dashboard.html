@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CareerSignal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body class="auth-body">
+    <div class="auth-container" style="max-width: 600px; text-align: center; background: white; padding: 2rem; border-radius: 16px;">
+        <h1>Welcome to CareerSignal</h1>
+        <p>Your AI-powered job alerts are now active. We'll start sending opportunities to your WhatsApp shortly.</p>
+        <p><strong>Logged in as:</strong> <span id="userEmail"></span></p>
+        <button id="signOutBtn" class="btn">Sign Out</button>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+        // FINAL CORRECTED firebaseConfig - storageBucket is correct and measurementId is included.
+        const firebaseConfig = {
+            apiKey: "AIzaSyBLBWxj2DKaqBj-yNKPJ8ss6rQo3TH7Fco",
+            authDomain: "careersignal-680c5.firebaseapp.com",
+            projectId: "careersignal-680c5",
+            storageBucket: "careersignal-680c5.firebasestorage.app",
+            messagingSenderId: "187741139925",
+            appId: "1:187741139925:web:187a97113f1416c955835c",
+            measurementId: "G-Z73VK80MYQ" // This line has been added for a 100% match
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const userEmailSpan = document.getElementById('userEmail');
+        const signOutBtn = document.getElementById('signOutBtn');
+
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                userEmailSpan.textContent = user.email;
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+
+        signOutBtn.addEventListener('click', () => {
+            signOut(auth).catch(error => {
+                console.error('Sign out error', error);
+            });
+        });
+    </script>
+</body>
+</html>

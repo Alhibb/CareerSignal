@@ -1,0 +1,44 @@
+{
+  "firestore": {
+    "rules": {
+      "users": {
+        ".read": "auth != null",
+        ".write": "auth != null && request.auth.uid == userId",
+        "profiles": {
+          "$userId": {
+            ".read": "auth != null",
+            ".write": "auth != null && request.auth.uid == $userId"
+          }
+        },
+        "subscriptions": {
+          "$userId": {
+            ".read": "auth != null && request.auth.uid == $userId",
+            ".write": "auth != null && request.auth.uid == $userId"
+          }
+        },
+        "jobPreferences": {
+          "$userId": {
+            ".read": "auth != null && request.auth.uid == $userId",
+            ".write": "auth != null && request.auth.uid == $userId"
+          }
+        }
+      },
+      "jobs": {
+        ".read": "auth != null",
+        ".write": "auth != null && request.auth.token.admin == true"
+      },
+      "alerts": {
+        "$userId": {
+          ".read": "auth != null && request.auth.uid == $userId",
+          ".write": "auth != null && request.auth.uid == $userId"
+        }
+      },
+      "payments": {
+        "$userId": {
+          ".read": "auth != null && request.auth.uid == $userId",
+          ".write": "auth != null && (request.auth.uid == $userId || request.auth.token.admin == true)"
+        }
+      }
+    }
+  }
+}
